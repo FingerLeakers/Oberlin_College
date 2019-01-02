@@ -1,19 +1,8 @@
-# secondconverter.py
-# Translate seconds into a more readable hours, minutes, and seconds.
-#
-# Trevor Martin
-# 17 February 2018
-
-# Explain on the terminal (via the print function) what this program does.
-
-
-# Prompt the user to enter a number of seconds, store in a variable.
-
-
-# Compute hours, mins, and seconds for this input.
-
-
-# Print the results.
+#Author: Trevor Martin
+#Date of Completion: 17 February 2018
+#Data of Edits: 1 January 2019
+#Language: Python 3
+#Difficulty: Very Easy
 
 print("I hope you are having a nice day, here I created a program.","\n","\n", "This program converts a number of seconds into hours, minutes under 60, and remaining seconds under 60.","\n",sep="")
 sec=int(input("Please enter the number of seconds:"))
