@@ -1,19 +1,12 @@
 /**
- * Hello CSCI 151 graders, I am writing to you from the past; currently the date
- * is August 6th. I am completing some of the course work early so that I may
- * explore CSCI 151 more deeply during the coming semester. My schedule this
- * semester is packed and I believe that doing some of the work now may benefit
- * me later on. Thank you for reading this and I hope you have a nice day and
- * enjoyed your summer.
- * 
  * @author Trevor Martin
- *
- *         "I have adhered to the Honor Code in this assignment" - Trevor
- *         Martin.
- *
+ * Date of Completion: ?
+ * Date of Edits: 1 January 2019
+ * Language: Java
  */
 
-public class Hello151 {
+public class Hello151
+{
 
     public static void main(String[] args)
 
@@ -36,4 +29,4 @@ public class Hello151 {
 
 }
 
-//fileZilla 
+ 
