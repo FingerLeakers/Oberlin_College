@@ -1,4 +1,9 @@
-#     
+#Author: Trevor Martin
+#Date of Completion: 20 February 2018
+#Data of Edits: 1 January 2019
+#Language: Python 3
+#Difficulty: Very Easy
+
 print("Trevor's Fibonacci Number Generator")
 while True:
     n=int(input("Enter Positive Integer Please:"))

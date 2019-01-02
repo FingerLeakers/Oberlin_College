@@ -1,7 +1,8 @@
-#interest.py
-#This program gets an initial deposit, a monthly interest rate, a monthly deposit, and a number of months n from the use, and provides the total money in possession at the end of n months.
-#Trevor Martin
-#CSCI 150 20 February 2018
+#Author: Trevor Martin
+#Date of Completion: 20 February 2018
+#Data of Edits: 1 January 2019
+#Language: Python 3
+#Difficulty: Very Easy
 
 n=eval(input("Enter # of Months:"))
 IS=eval(input("Enter your initial savings:"))
