@@ -1,3 +1,3 @@
-CSCI364 | Artificial Intelligence | Oberlin College
+### CSCI364 | Artificial Intelligence | Oberlin College
 
-This repository documents Trevor Martin's work for Artificial Intelligence during the spring semester of the year 2019. This course was taken indirectly and, as a result, the correctness of some of the programs should be taken with skepticism. 
+Here I document my coursework for the Spring 2019 iteration of CSCI 151. I have edited the labs to remove any imperfections in the code, though there still may exist some poor design decisions. I may occassionally update the labs to improve the code and add comments. If there are any faults that you see please contact me: tmartin2@oberlin.edu
