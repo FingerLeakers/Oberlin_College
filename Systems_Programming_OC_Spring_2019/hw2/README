@@ -1,0 +1,75 @@
+Trevor Martin | ? February 2019
+================================================================================
+FILES ENCLOSED
+================================================================================
+testurl.sh
+
+Tests whether or not the urls in a directory lead to a valid webpage.
+
+backup.sh
+
+Takes directory as argument and copies files, inputting them to the directory.
+
+diskhog.sh
+
+Lists the 5 largest items in the current directory in decreasing magnitude of
+size recursively.
+
+linecount.sh
+
+Recursively counts all the lines in all the file of a current directory.
+
+gradeit.sh
+
+Tests for differences between two files; grades diamond.c and rot128.c, which
+are stored ~rhoyle/pub/cs241/hw01
+
+================================================================================
+ISSUES
+================================================================================
+1. backup.sh I cannot input files into a directory inside the directory I am
+   already in.
+2. linecount.sh I do not know whether my program reads blank lines and have not
+   tested it nor know whether they should be counted. I believe my program only
+   read lines of code.
+3. gradeit.sh I do not know whether the "errors" I outputted when the outputs
+   did not match are actual errors in my homework or whether they are the result
+   of faulty code in gradeit.sh
+================================================================================
+DATA FILE ANALYSIS
+================================================================================
+1. There are 21790 "Male" entries and 10771 "Female" entries. To find this I
+   utilized cut -d, -f, and -s. These were in the order. cut -d -s ',' -f 10
+   I then piped this to sort and then piped that to uniq --count, which counted
+   the "prefix lines by number of occurrences"
+2. There are 7841 labels over 50K and 24720 less than or equal to 50K. I used
+   cut -d ',' -f 15 adult.data | sort | uniq --count
+3. There are White: 27816, Black: 3124, Asian Pacific Islander: 1039
+   American Indian Eskimo: 311 and Others: 271. To get this I used again.
+   cut -d -s ',' -f 9 adult.data before piping "|" it to sort --numeric-sort
+   --reverse | uniq -c > results.data sort -nr results.data
+4. There are White Males: 19174, While Females: 8642 Black Males: 1569,
+   Black Females: 1555 Asian Pacific Islander Males: 693, Asian Pacifice Islander
+   Females: 346, American Indian Eskimo Male: 192, American Indian Females: 119,
+   Other Males: 162, and Other Females: 109 To get this I used again. cut -d -s ',' -f 9
+   ,10 adult.data | sort --numeric-sort --reverse | uniq -c
+   > results.data sort -nr results.data
+================================================================================
+ESTIMATED TIME
+================================================================================
+testurl.sh ~3 hours
+backup.sh ~2 hours
+diskhog.sh ~2 hour
+linecount.sh ~2 hour
+gradeit.sh ~6 hours
+data analysis ~3 hours
+================================================================================
+EXTRA CREDIT
+=============================================
+I have added more testing to gradeit.sh
+=============================================
+HONOR CODE
+=============================================
+"I have adhered to the Honor Code in this
+assignment." - Trevor Martin
+=============================================
