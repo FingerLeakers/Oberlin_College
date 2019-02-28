@@ -1,0 +1,41 @@
+Trevor Martin | 17 February 2019, ~11:15pm
+=============================================
+FILES ENCLOSED
+=============================================
+hello.c
+
+Prints a formatted amalgam of strings and floating point numbers.
+
+rot128.c
+
+Encrypts text by rotating it a user inputted number of times.
+
+diamond.c
+
+The user enters a size for a "diamond" and such a diamond is printed.
+
+Makefile
+
+Compiles all of the files at once to reduce the burden on the user.
+
+=============================================
+ISSUES
+=============================================
+There are no warnings or compilation problems
+=============================================
+EXTRA CREDIT
+=============================================
+When ./diamond is run you can see that there are two diamonds
+printed, one diamond and one diamond outline. This diamond outline
+was for the extra credit, but I did not figure out how to read
+a user's input as being a negative number. If the user enters
+either a positive or negative number they will see both diamonds.
+I am confused as to whether or not printing out both diamonds at
+the same time goes against the objective of the non-extra-credit
+portion. I do this under that the assumption that printing out both is \
+OK.
+=============================================
+HONOR CODE
+=============================================
+"I have adhered to the Honor Code in this
+assignment." - Trevor Martin

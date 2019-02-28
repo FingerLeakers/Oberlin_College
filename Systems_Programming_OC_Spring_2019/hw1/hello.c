@@ -1,5 +1,5 @@
 //Author: Trevor Martin
-//Date of Completion: ?
+//Date of Completion: 10 February 2019
 //Language: C
 //Homework #: 1, hello.c
 //Class: CSCI241 | Systems Programming | Oberlin College 
@@ -20,7 +20,8 @@ int main()
   double multiplication = (double) 0.88888888 * 0.999999999;
   float addition = (float) 0.25 + 0.25;
   float subtraction = (float) 0.75 - 0.25;
-  float exponential = pow((float) 0.25, 0.10);
+  //having trouble getting pow() to function properly
+  float exponential = pow(0.25, 0.10);
   printf("%d\n%-13d\n%13d\n%f\n%2.3f\n%.9f\n",this_year,amount_of_money_wanted,amount_of_money_wanted,addition,subtraction,exponential);
   
 }

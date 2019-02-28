@@ -1,21 +1,23 @@
-#Author: Trevor Martin#
-#Date of Completion: ?
-#Language: C
-#Homework #: 1, Makefile
-#Class: CSCI241 | Systems Programming | Oberlin College
-#===========================================================
+#Author: Trevor Martin                                                       
+#Date of Completion: ?                                                        
+#Language: C                                                                  
+#Class: CSCI241 | Systems Programming | Oberlin College                       
+#Homework#: 1, Makefile                                                      
+#===========================================================             
+#target: dependencies                                                          
+#       action                                                                       
+all:hello rot128 diamond
 
-#target: dependencies
-#	action
+hello:hello.c
+        gccx -o hello hello.c
 
-all: hello
+rot128:rot128.c
+        gccx -o rot128 rot128.c
 
-hello: hello.o
-	clang hello.o -o hello -l m
+diamond:diamond.c
+        gccx -o diamond diamond.c
 
-hello.o: hello.c
-	clang -c hello.c
-
-
+clean:
+        rm -f hello rot128 diamond
 
 
