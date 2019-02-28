@@ -4,8 +4,8 @@
 #Language: Python 3
 #Difficulty: Very Easy
 
-n=eval(input("Enter Input:"))
-for row in range(1, n+1):
-    for col in range(row, n+1):
-        print(col, end=" ")    
+user_input = int(input("Enter Input: "))
+for row in range(1, user_input+1):
+    for column in range(row, n+1):
+        print(column, end=" ")    
     print()
