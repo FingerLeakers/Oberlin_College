@@ -1,0 +1,114 @@
+#Author: Trevor Martin
+#Date of Completion: 6 March 2019
+#LATE PASS#: 2
+#Language: Regex
+#Class: CSCI241 | Systems Programming | Oberlin College
+#Homework#: 3, Problems 1-20
+#===========================================================================================
+#DESCRIPTION
+#===========================================================================================
+#The description of each regular expression prompt is given below.
+#===========================================================================================
+
+#Give a command that will use a single egrep or grep -E on /usr/share/dict/words.241 to find
+#the following. Consider only a, e, i, o, and u as vowels for our purposes. Put your answers
+#in a file called README.
+
+#Protip: you can do export WORDS=/usr/share/dict/words.241 and then use $WORDS as your input
+#file. Also, piping output to wc -l will let you count the lines output.
+
+1. All words that contain exactly one lowercase vowel (5948 on clyde)
+
+   egrep ^[^aeiou]*[aeiou][^aeiou]*$ $WORDS | wc -l
+
+2. All words that contain the lowercase vowels a, e, i, o, and u in that order (6 on clyde)
+
+   egrep 'a.*e.*i.*o.*u' $WORDS | wc -l
+
+   #matches anything with a then 0 or much of preceding character (*), which can be any
+   #character (.). Repeat this for the next few vowels.
+
+3. All words that are exactly 22 lowercase letters long (2 on clyde)
+
+   egrep [a-z]\{22\} $WORDS | wc -l
+
+   #match all lowercase characters, match previous items exactly n=22 times
+   
+4. All words that have a 4-letter sequence repeated (24 on clyde)
+
+   egrep '\b\w*(\w{4})\w*\1' $WORDS | wc -l
+
+5. All words that start and end with the same 3 letter sequence (32 on clyde)
+
+   egrep '^(\w{3})\w*\1$' $WORDS | wc -l
+
+6. All lowercase words that are made up of only pairs of consonant-vowels like banana and are
+   at least 6 letters long (545 on clyde)
+
+   egrep '^([^aeiouA-Z][aeiou]){3,}$' #WORDS | wc -l
+
+7. All words that end with their first 3 letters reversed like detected (14 on clyde)
+
+   egrep '^(\w)(\w)(\w)\w*\3\2\1$' $WORDS | wc -l
+
+8. Replace all instances of "snow fall" or "wind chill" with "summertime"
+
+
+   sed -E 's/snow fall/summertime/g; s/wind chill/summertime/g' $WORDS
+   #Wasn't sure if this functioned properly so I tested it on zygote instead of wind chill and it
+   #seemed to function fine.
+
+9. Assuming the input is a dictionary file like /usr/share/dict/words.241 (one per line, alpha order),
+   print out all words between "computer" and "science"
+
+   sed -E -n '/^computer/,/^science/p' $WORDS
+   #Not tested on a test file. Not sure if this works, might have time to check.
+   #Just tested this and it prints out computer, science, and all the words in between.
+
+10. Replaces all instances of "Teh" with "The" and "teh" with "the", but only in standalone words
+
+   sed -E 's/[\s]*teh\s/the /g; s/[\s]*Teh\s/The /g'
+
+11. Move the last word on a line to the front
+
+12. Find lines where a word has been repeated on the same line and replace that line with a repeated
+    word. Don't print the other lines.
+
+
+
+13. Convert C block comments that are on one line and at the end into a line comment.
+    So /* add things up */ would become // add things up
+
+
+
+14. Only print out lines that contain "cs 241", but change that to "CSCI 241"
+
+
+
+15. Take the previous, but modify it to handle "CS" or "CSCI" with or without space and of any type of
+    capitalization (e.g., "cScI241")
+
+
+
+16. Truncate all lines after exactly 20 characters.
+
+    sed -r 's/(.{20}).*/\1/' $WORDS
+
+
+
+17. Replace all instances of "Roberto J. Hoyle" with "RJH" (including variations with "Robert" and/or no
+    middle initial)
+
+
+
+18. Assuming that a name is made up of two adjacent words that start with a capital and are followed by
+    one or more lower case letter s, anonymize the input by changing every name to be just their initials.
+    So "Roberto Hoyle" becomes "RH". Be sure to handle having multiple names on the line.
+
+
+19. If there is a 10 digit number on a line (not part of another word) reformat the number as (123) 456-7890
+
+
+
+20. Assume that the input is being piped from wget --quiet -O- http://xkcd.com/ (which will print the xkcd
+    comic's html page to stdout), print out the Image and Title information as follows:
