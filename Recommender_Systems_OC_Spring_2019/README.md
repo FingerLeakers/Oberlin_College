@@ -24,8 +24,9 @@ Recommendation systems sift user data to find which items are most relevant or i
 		The cosine value will be between 1 and -1, a probability. From here a Top n approach
 		can be used where the top n movies are recommended to the user or a rating scale a
 		approach can be used, where all the movies above a certain threshold are recommended.
-
-		Two other algorithms that can be used are Euclidean's Distance, where the distances
+	
+	
+	Two other algorithms that can be used are Euclidean's Distance, where the distances
 		between similar items (new ones and ones that user has purchased or attended to) is
 		calculated and the closest ones are recommended math.sqrt((x1-y1)**2+...+(xN-yN)**2)),
 		and Pearson's Correlation, which tells us how correlated two items are through
@@ -69,6 +70,4 @@ Recommendation systems sift user data to find which items are most relevant or i
 		Start the most popular items are recommended to the user until their preferences are known. Content
 		based filtering allows a product to be integrated into the system before the user actions determine its
 		popularity; this is for Product Cold Start.
-
-
 
