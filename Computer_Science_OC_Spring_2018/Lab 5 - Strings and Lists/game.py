@@ -10,16 +10,14 @@ import random
 
 #This program randonly generates codemaker's code.
 def generateCode():
-    Colors=["R","G","O","B","Y","P"]
-    Color1=random.randint(1,6)
-    Color2=random.randint(1,6)
-    Color3=random.randint(1,6)
-    Color4=random.randint(1,6)
-    Code=""
-    for i in range(1,5):
-        Color1=random.randint(1,6)
-        Code=Code+Colors[Color1-1]
-    return Code
+    colors=["R","G","O","B","Y","P"]
+    hidden_code=""
+    for i in range(4):
+        random_number = random.randint(0,5)
+        color = colors[random_number]
+        hidden_code = hidden_code + color
+    #print(hidden_code)
+    return hidden_code
 
 def codeAndGuess(Code):
     NUM_TURNS=0
@@ -39,20 +37,23 @@ def codeAndGuess(Code):
             for i in range(len(NewGuess)):
                 if NewGuess[i]==NewCode[i]:
                     black=black+1
-                    NewGuess=NewGuess[0:i]+"x"+NewGuess[i+1:]
-                    NewCode=NewCode[0:i]+"z"+NewCode[i+1:]
+                    NewGuess=NewGuess[0:i]+" "+NewGuess[i+1:]
+                    #Takes Y
+                    print("Update Guess:",NewGuess,"\n")
+                    NewCode=NewCode[0:i]+"W"+NewCode[i+1:]
+                    print("Update Code:",NewCode,"\n")
             for i in range(len(NewGuess)):
                 for j in range(len(NewGuess)):
-                    if NewGuess[j]!="x" and NewGuess[j]==NewCode[i]:
+                    if NewGuess[j]!=" " and NewGuess[j]==NewCode[i]:
                         white=white+1
-                        NewGuess=NewGuess[0:j]+"y"+NewGuess[j+1:]
-                        NewCode=NewCode[0:i]+"w"+NewCode[i+1:]
-  
+                        NewGuess=NewGuess[0:j]+"Y"+NewGuess[j+1:]
+                        NewCode=NewCode[0:i]+"Z"+NewCode[i+1:]
         print("Your Guess:",Guess,"\nTry again you got it wrong. \nYou have",CurrentTurns,"guesses remaining. You also have",white,"white pegs and",black,"black pegs.")
-        
+        white=0
+        black=0
 def main():
-    Code=generateCode()
-    codeAndGuess(Code)
+    color_code = generateCode()
+    codeAndGuess(color_code)
 
 main()
 
