@@ -49,10 +49,9 @@
 
 7. All words that end with their first 3 letters reversed like detected (14 on clyde)
 
-   egrep '^(\w)(\w)(\w)\w*\3\2\1$' $WORDS | wc -l
+   egrep '^(.)(.)(.).*\3\2\1$' $WORDS | wc -l
 
 8. Replace all instances of "snow fall" or "wind chill" with "summertime"
-
 
    sed -E 's/snow fall/summertime/g; s/wind chill/summertime/g' $WORDS
    #Wasn't sure if this functioned properly so I tested it on zygote instead of wind chill and it
@@ -67,48 +66,64 @@
 
 10. Replaces all instances of "Teh" with "The" and "teh" with "the", but only in standalone words
 
-   sed -E 's/[\s]*teh\s/the /g; s/[\s]*Teh\s/The /g'
+    sed -E 's/[\s]*teh\s/the /g; s/[\s]*Teh\s/The /g'
 
 11. Move the last word on a line to the front
+
+    sed -E 's/(.*\s)(.*\s*)/\2\1/g'
 
 12. Find lines where a word has been repeated on the same line and replace that line with a repeated
     word. Don't print the other lines.
 
-
+    sed -E 's/.*\b(\w+)\b.*\1.*/\1/g'
 
 13. Convert C block comments that are on one line and at the end into a line comment.
     So /* add things up */ would become // add things up
 
-
+    sed -E 's/(\/)(\*)(.*)(\*)(\/)/\1\5\3/g'
 
 14. Only print out lines that contain "cs 241", but change that to "CSCI 241"
 
-
+    sed -E 's/cs 241/CSCI 241/;t;d'
 
 15. Take the previous, but modify it to handle "CS" or "CSCI" with or without space and of any type of
     capitalization (e.g., "cScI241")
 
-
+    sed -E 's/(cs.*241|csci.*241)/CSCI 241/I;t;d'
 
 16. Truncate all lines after exactly 20 characters.
 
-    sed -r 's/(.{20}).*/\1/' $WORDS
-
-
+    sed -r 's/(.{20}).*/\1/g' $WORDS
+    #I am unsure what truncate means in this context after looking it up. What I have done here is
+    #remove everything in a particular line past 20 characters, so I have truncated to 20 characters.
 
 17. Replace all instances of "Roberto J. Hoyle" with "RJH" (including variations with "Robert" and/or no
     middle initial)
 
-
+    sed -E 's/(Robert.*\s.*{2}\s*Hoyle)/RJH/g'
 
 18. Assuming that a name is made up of two adjacent words that start with a capital and are followed by
     one or more lower case letter s, anonymize the input by changing every name to be just their initials.
     So "Roberto Hoyle" becomes "RH". Be sure to handle having multiple names on the line.
 
+    sed -E 's/(([A-Z])(\w+)\s([A-Z])(\w+))*/\2\4/g'
 
 19. If there is a 10 digit number on a line (not part of another word) reformat the number as (123) 456-7890
 
-
+    sed -E 's/^(.*)([0-9]{3})([0-9]{3})([0-9]{4})(.*)/\1\(\2\) \3-\4\5/g'
 
 20. Assume that the input is being piped from wget --quiet -O- http://xkcd.com/ (which will print the xkcd
     comic's html page to stdout), print out the Image and Title information as follows:
+
+    #So many failed attempts. I will try this another day
+
+
+#===========================================================================================
+#HONOR CODE
+#===========================================================================================
+#"I affirm that I have adhered to the Honor Code in this assignment" - Trevor Martin
+#===========================================================================================
+#RESULTS
+#===========================================================================================
+#12 not supposed to print out lines without repeated words
+#19 should not convert if number is part of a word
