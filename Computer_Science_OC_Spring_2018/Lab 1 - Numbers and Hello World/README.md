@@ -1,1 +1,2 @@
-Lab 1 | CSCI 150 Spring 2018 
+## Lab 1 
+### Instructions are from the Spring 2019 iteration of the labs and may not match fully. 
