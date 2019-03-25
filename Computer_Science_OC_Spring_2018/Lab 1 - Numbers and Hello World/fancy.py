@@ -1,13 +1,18 @@
-#Author: Trevor Martin
-#Date of Completion: 17 February 2018
-#Data of Edits: 1 January 2019
-#Language: Python 3
-#Difficulty: Very Easy
+# Author: Trevor Martin
+# Date of Completion: 17 February 2018
+# Language: Python3
+# Class: CSCI 150 | Introductory Computer Science | Oberlin College
+# Homework#: 1, fancy.py
+#===================================================================================================
+# DESCRIPTION
+#===================================================================================================
+# This program greets someone with their last name, middle name, and first name.
+#===================================================================================================
 
-name=input("Enter your name:")
+name = str(input("Enter your name: "))
 
-nickname=input("Enter your nickname:")
+nickname = str(input("Enter your nickname: "))
 
-lastname=input("Enter your lastname:")
+lastname = str(input("Enter your lastname: "))
 
-print("Welcome back,",name, '"{}"'.format(nickname),lastname,"!")
+print("Welcome back, ",name,' "{}" '.format(nickname),lastname,"!",sep="")
