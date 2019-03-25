@@ -1,25 +1,40 @@
-#Author: Trevor Martin
-#Date of Completion: 20 February 2018
-#Data of Edits: 1 January 2019
-#Language: Python 3
-#Difficulty: Very Easy
+# Author: Trevor Martin
+# Date of Completion: 17 February 2018
+# Language: Python3
+# Class: CSCI 150 | Introductory Computer Science | Oberlin College
+# Homework#: 2, patternD.py
+#===================================================================================================
+# DESCRIPTION
+#===================================================================================================
+# This program prints this pattern if the input is 3
+# *****
+# *
+# *
+# *
+# ****
+# *
+# *
+# *
+# *****
+#===================================================================================================
 
 print("Pattern E Generator:")
-n=int(input("Enter the index:"))
-for i in range(1, n+3):
+
+user_input = int(input("Enter the index for your letter E: "))
+for asterick in range(1, user_input + 3):
     print("*", end="")
 print()
 
-for i in range(1, n+1):
+for asterick in range(1, user_input + 1):
     print("*")
     
-for i in range(1, n+2):
+for asterick in range(1, user_input + 2):
     print("*", end="")
 print()
 
-for i in range(1,n+1):
+for asterick in range(1, user_input + 1):
     print("*")
     
-for i in range(1, n+3):
+for asterick in range(1, user_input + 3):
     print("*", end="")
 print()

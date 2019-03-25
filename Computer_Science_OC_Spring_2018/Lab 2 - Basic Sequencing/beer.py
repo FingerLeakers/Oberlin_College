@@ -1,15 +1,20 @@
-#Author: Trevor Martin
-#Date of Completion: 20 February 2018
-#Data of Edits: 1 January 2019
-#Language: Python 3
-#Difficulty: Very Easy
+# Author: Trevor Martin
+# Date of Completion: 20 February 2018
+# Language: Python3
+# Class: CSCI 150 | Introductory Computer Science | Oberlin College
+# Homework#: 2, beer.py
+#===================================================================================================
+# DESCRIPTION
+#===================================================================================================
+# Prints the "n bottles of beer on the wall" song
+#===================================================================================================
 
-NUM_BOTTLES=100
+BOTTLES = 100
 
-a="bottles of beer on the wall"
-b="bottles of beer!"
-c="Take one down, pass it around"
+line_1 = " bottles of beer on the wall"
+line_2 = " bottles of beer!"
+line_3 = "Take one down, pass it around"
 
-for bottles in range(1, NUM_BOTTLES+1):
-    NUM_BOTTLES=NUM_BOTTLES-1
-    print(NUM_BOTTLES,a,"\n",NUM_BOTTLES,b,"\n",c,"\n",NUM_BOTTLES,a,"!")
+for a_bottle in range(1, BOTTLES + 1):
+    BOTTLES = BOTTLES - 1
+    print(BOTTLES,line_1,"\n",BOTTLES,line_2,"\n",line_3,"\n",BOTTLES,line_1,"!",sep="")

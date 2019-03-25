@@ -1,14 +1,19 @@
-#Author: Trevor Martin
-#Date of Completion: 20 February 2018
-#Data of Edits: 1 January 2019
-#Language: Python 3
-#Difficulty: Very Easy
+# Author: Trevor Martin
+# Date of Completion: 17 February 2018
+# Language: Python3
+# Class: CSCI 150 | Introductory Computer Science | Oberlin College
+# Homework#: 2, patternD.py
+#===================================================================================================
+# DESCRIPTION
+#===================================================================================================
+# This program prints a sequence leading up to a number n of squared integers
+#===================================================================================================
 
-n=int(input("Enter Integer:"))
+user_input = int(input("Enter integer number for your sequence: "))
 
-print("Squares from",n**2,"down to 1:")
+print("Squares from",user_input**2,"down to 1: ")
 
-for i in range(n, 0, -1):
-    print(i**2," ",end="")
+for iteration in range(user_input, 0, -1):
+    print(iteration**2," ",end="")
 
 
