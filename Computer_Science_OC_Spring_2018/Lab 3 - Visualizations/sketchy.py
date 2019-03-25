@@ -1,11 +1,18 @@
-#Author: Trevor Martin
-#Date of Completion: 21 February 2018
-#Data of Edits: 30 December 2018
-#Language: Python 3
-#Difficulty: Very Easy
-
+# Author: Trevor Martin
+# Date of Completion: 21 February 2018
+# Language: Python3
+# Class: CSCI 150 | Introductory Computer Science | Oberlin College
+# Homework#: 3, sketchy.py
+#===================================================================================================
+# DESCRIPTION
+#===================================================================================================
+# This is a training program for using the picture dependency
+#===================================================================================================
+# DEPENDENCIES
+#===================================================================================================
 import picture
- 
+#===================================================================================================
+
 canvas=picture.Picture(600,600)
 canvas.setFillColor(0,50,100)
 canvas.drawRectFill(0,0,600,600)
