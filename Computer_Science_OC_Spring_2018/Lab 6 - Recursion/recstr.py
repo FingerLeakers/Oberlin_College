@@ -1,51 +1,56 @@
-#Author: Trevor Martin
-#Date of Completion: 28 March 2018
-#Data of Edits: 5 January 2019
-#Language: Python 3
-#Difficulty: Easy
+# Author: Trevor Martin
+# Date of Completion: 28 March 2018
+# Language: Python3
+# Class: CSCI 150 | Introductory Computer Science | Oberlin College
+# Homework#: 6, recstr.py
+#===================================================================================================
+# DESCRIPTION
+#===================================================================================================
+# This program recursively checks whether or not a string is determine_palindrome and whether or not a
+# second string is a subsequence of the first string
+#===================================================================================================
 
 def main():
-    string1=str(input("Please provide a string1:"))
-    string2=str(input("Please provide a string2:"))
-    print("The string",string1,"backwards is",Backwards(string1),".") 
-    if Palindrome(string1) == True:
-        print("The string",string1,"is a Palindrome.")
-    elif Palindrome(string1) == False:
-        print("The string",string1,"is not a Palindrome.")
-    if IsSequenceOf(string1, string2) == True:
-        print(string2,"is a Sequence of",string1)
-    elif IsSequenceOf(string1,string2) == False:
-        print(string2,"is not a Sequence of",string1)
+    first_string = str(input("Please provide a first_string:"))
+    second_string = str(input("Please provide a second_string:"))
+    print("The string ",first_string," backwards is ",reverse(first_string),".",sep="") 
+    if determine_palindrome(first_string) == True:
+        print("The string",first_string,"is a determine_palindrome.")
+    elif determine_palindrome(first_string) == False:
+        print("The string",first_string,"is not a determine_palindrome.")
+    if determine_subsequence(first_string, second_string) == True:
+        print(second_string,"is a sequence of",first_string)
+    elif determine_subsequence(first_string,second_string) == False:
+        print(second_string,"is not a sequence of",first_string)
    
-#This function takes a string and reverses the order of its letters.
-def Backwards(string):
-    if len(string)==0:
+# this function takes a string and reverses the order of its letters.
+def reverse(user_input):
+    if len(user_input) == 0:
+        # base case for a string is "" 
         return ""
-    elif len(string)>0:
-        LastLetter=string[-1]
-        return LastLetter + Backwards(string[:-1])
+    elif len(user_input) > 0:
+        last_letter = user_input[-1]
+        return last_letter + reverse(user_input[:-1])
                      
-    #return Backwards(letters[:,-1])
-    #return Backwards(len(string)-string[string-1])
-
-#This function finds if a string is read the same fowards as backwards.
-def Palindrome(string):
-    if len(string)==0 or len(string)==1:
+# this function finds if a string is read the same forwards as reversed.
+# user input here is some string
+def determine_palindrome(user_input):
+    if len(user_input)==0 or len(user_input)==1:
         return True
-    elif string[0]==string[-1] and Palindrome(string[1:-1]):
+    elif user_input[0] == user_input[-1] and determine_palindrome(user_input[1:-1]):
         return True
     else:
         return False
 
-#This finds whether or not string2 is a sequence of string1.
-def IsSequenceOf(string1, string2):
-    if len(string2)==0:
+# this finds whether or not second_string is a sequence of first_string.
+def determine_subsequence(first_string, second_string):
+    if len(second_string)==0:
         return True
-    elif len(string2)>len(string1):
+    elif len(second_string) > len(first_string):
         return False
-    elif string1[0]==string2[0] and IsSequenceOf(string1[1:], string2[1:]):
+    elif first_string[0] == second_string[0] and determine_subsequence(first_string[1:], second_string[1:]):
         return True
-    elif string1[0]!=string2[0] and IsSequenceOf(string1[1:], string2):
-        return True
+    elif first_string[0] != second_string[0] and determine_subsequence(first_string[1:], second_string[1:]):
+        return False
     
 main()
