@@ -1,17 +1,18 @@
+# Author: Trevor Martin and Adam Eck (structured code is his)
+# Date of Completion: 16 March 2018
+# Language: Python3
+# Class: CSCI 150 | Introductory Computer Science | Oberlin College
+# Homework#: 5, predict.py
+#===================================================================================================
+# DESCRIPTION
+#===================================================================================================
 # A program for predicting the species of flowers from their measurements.
-#
-# Note: some of the code for this program is already provided to you.
-# Your goal is to fill out several of the functions below to make this program work.
-#
-#Author: Trevor Martin and Adam Eck (mostly Eck)
-#Date of Completion: 15 March 2018
-#Data of Edits: 2 January 2019
-#Language: Python 3
-#Difficulty: Medium 
-
-# many of the functions needed are already provided in the predict_helpers module
+#===================================================================================================
+# DEPENDENCIES
+#===================================================================================================
 import predict_helpers
 import math
+#===================================================================================================
 
 # A function for calculating the distance between two flowers' measurements
 #
@@ -21,10 +22,10 @@ import math
 def calculateDistance(flower1, flower2):
     # calculate the distance between flower1 and flower2
 
-    dist=math.sqrt(((flower1[0]-flower2[0])**2)+((flower1[1]-flower2[1])**2)+((flower1[2]-flower2[2])**2)+((flower1[3]-flower2[3])**2))
+    distance = math.sqrt(((flower1[0]-flower2[0])**2)+((flower1[1]-flower2[1])**2)+((flower1[2]-flower2[2])**2)+((flower1[3]-flower2[3])**2))
     
     # return the distance so we can use it outside this function
-    return dist
+    return distance
 
 # A function for predicting the species of a single unknown flower
 #
@@ -46,10 +47,10 @@ def predict(newFlower, knownFlowers, knownSpecies):
     # note: closest = smallest distance
 
     #This looks through all knownFlowers and continually changes closestDistance based on the newFlower 's distance
-    for i in range(len(knownFlowers)):          
+    for index in range(len(knownFlowers)):          
         if calculateDistance(newFlower, knownFlowers[i]) < closestDistance:
             closestDistance = calculateDistance(newFlower,knownFlowers[i])
-            closestIndex=i
+            closestIndex=index
             
     # predict the same species as the flower in knownFlowers that newFlower is closest to
     return knownSpecies[closestIndex]
@@ -66,8 +67,8 @@ def makePredictions(unknownFlowers, knownFlowers, knownSpecies):
 
 
     predictions = []
-    for i in unknownFlowers:
-        predictions.append(predict(i,knownFlowers,knownSpecies))
+    for flower in unknownFlowers:
+        predictions.append(predict(flower,knownFlowers,knownSpecies))
 
     # send back the predictions that we made
     return predictions
@@ -89,6 +90,11 @@ def main():
     
 # call main to start the program
 main()
+
+
+    
+
+        
         
         
     

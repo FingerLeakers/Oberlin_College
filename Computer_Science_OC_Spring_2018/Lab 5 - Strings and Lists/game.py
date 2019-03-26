@@ -1,59 +1,70 @@
-#Author: Trevor Martin
-#Date of Completion: 16 March 2018
-#Data of Edits: 2 January 2019
-#Language: Python 3
-#Difficulty: Medium 
-
-print("In this game there is a 4 letter code made from 6 colors.\n", "The colors are R(red), G(green), B(brown), Y(yellow), P(purple), or O(orange).\n", "Try to guess the color sequence; you have 10 guesses, and a white pegs means\n you got a color correct but in the wrong space and a black peg\n means you got a correct color in the correct place. Good luck.", sep=" ")
-
+# Author: Trevor Martin
+# Date of Completion: 16 March 2018
+# Language: Python3
+# Class: CSCI 150 | Introductory Computer Science | Oberlin College
+# Homework#: 5, game.py
+#===================================================================================================
+# DESCRIPTION
+#===================================================================================================
+# The game Mastermind
+#===================================================================================================
+# DEPENDENCIES
+#===================================================================================================
 import random
+#===================================================================================================
 
-#This program randonly generates codemaker's code.
-def generateCode():
-    colors=["R","G","O","B","Y","P"]
-    hidden_code=""
-    for i in range(4):
+print('{}\n{}\n{}\n{}'.format("Guess the four color code.","There are R,G,O,B,Y, and P.",
+                          "Black pegs mean correct color in correct position.",
+                          "White pegs mean correct color in but in the wrong position.",
+                          "A color and position cannot be both a white_pegs and black_pegs peg."))
+
+# choose random index for color list four times
+def generate_hidden_code():
+    colors = ["R","G","O","B","Y","P"]
+    hidden_code = ""
+    for color in range(4):
         random_number = random.randint(0,5)
         color = colors[random_number]
-        hidden_code = hidden_code + color
-    #print(hidden_code)
+        hidden_code += color
     return hidden_code
 
-def codeAndGuess(Code):
+# play Mastermind
+def Mastermind(hidden_color_code):
     NUM_TURNS=0
-    done=False
-    while not done and NUM_TURNS<10:
-        black=0
-        white=0
-        Guess=input(str("What's your guess:"))
-        NewGuess=Guess
-        NewCode=Code
-        if NewGuess==Code:
+    done = False
+    while not done and NUM_TURNS < 10:
+        black_pegs = 0
+        white_pegs = 0
+        user_guess=input(str("What's your user_guess: "))
+        new_user_guess = user_guess
+        new_hidden_color_code = hidden_color_code
+        if new_user_guess == hidden_color_code:
             print("You got it friend")
             done=True
         else:
-            NUM_TURNS=NUM_TURNS+1
-            CurrentTurns=10-NUM_TURNS
-            for i in range(len(NewGuess)):
-                if NewGuess[i]==NewCode[i]:
-                    black=black+1
-                    NewGuess=NewGuess[0:i]+" "+NewGuess[i+1:]
-                    #Takes Y
-                    print("Update Guess:",NewGuess,"\n")
-                    NewCode=NewCode[0:i]+"W"+NewCode[i+1:]
-                    print("Update Code:",NewCode,"\n")
-            for i in range(len(NewGuess)):
-                for j in range(len(NewGuess)):
-                    if NewGuess[j]!=" " and NewGuess[j]==NewCode[i]:
-                        white=white+1
-                        NewGuess=NewGuess[0:j]+"Y"+NewGuess[j+1:]
-                        NewCode=NewCode[0:i]+"Z"+NewCode[i+1:]
-        print("Your Guess:",Guess,"\nTry again you got it wrong. \nYou have",CurrentTurns,"guesses remaining. You also have",white,"white pegs and",black,"black pegs.")
-        white=0
-        black=0
+            NUM_TURNS += 1
+            current_turns = 10 - NUM_TURNS
+            for i in range(len(new_user_guess)):
+                if new_user_guess[i]==new_hidden_color_code[i]:
+                    black_pegs+=1
+                    new_user_guess=new_user_guess[0:i]+" "+new_user_guess[i+1:]
+
+                    new_hidden_color_code = new_hidden_color_code[0:i]+"W"+new_hidden_color_code[i+1:]
+                    
+            for i in range(len(new_user_guess)):
+                for j in range(len(new_user_guess)):
+                    if new_user_guess[j] !=" " and new_user_guess[j] == new_hidden_color_code[i]:
+                        white_pegs += 1
+                        new_user_guess=new_user_guess[0:j]+"Y"+new_user_guess[j+1:]
+                        new_hidden_color_code=new_hidden_color_code[0:i]+"Z"+new_hidden_color_code[i+1:]
+        print('{}{}{}\n{}{}{}{}{}{}{}{}'.format("This guess: ",user_guess,"is wrong. ","You have ",current_turns," turns left ",
+                                   "and have ",black_pegs," black pegs and ",white_pegs," white pegs."))
+
+        white_pegs=0
+        black_pegs=0
 def main():
-    color_code = generateCode()
-    codeAndGuess(color_code)
+    hidden_color_code = generate_hidden_code()
+    Mastermind(hidden_color_code)
 
 main()
 
